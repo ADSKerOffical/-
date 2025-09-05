@@ -1,6 +1,16 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 
 local Window = OrionLib:MakeWindow({Name = "Budgie Hub | :)", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+pcall(function() game.Players.ADSKer_man222.PlayerScripts.BlockDevConsoleForNonCreator:Destroy() end)
+
+--[[
+local hook; hook = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
+  if self == game.StarterGui and getnamecallmethod() == "SetCore" and (({...})[1] == "DevConsoleVisible" and ({...})[2] == false) then
+    print(getcallingscript():GetFullName())
+ end
+  return hook(self, ...)
+end))
+]]--
 
 local Tab = Window:MakeTab({
  Name = "Main",
